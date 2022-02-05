@@ -11,21 +11,22 @@
 <body>
   <div>
     <header>
-     
       <nav>
+        <a href="/">Homepage</a>
+        <a href="/dashboard">Dashboard</a>
         {{#if logged_in}}
-        <button id="logout-link">Logout</button>
+        <button id="logout-link">Log Out</button>
         {{else}}
-        <a href="/login">Login</a>
+        <a href="/login">Log In</a>
         <a href="/signup">Sign Up</a>
         {{/if}}
       </nav>
-      </br>
+      <br>
        <h1>
         <a href="/">Tech Blog</a>
       </h1>
     </header>
-    <main class="container container-fluid mt-5">
+    <main>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
