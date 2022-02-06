@@ -23,7 +23,6 @@ router.get('/', withAuth, async (req, res) => {
   });
 
   router.get('/new', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
     res.render('new-post');
   });
 
