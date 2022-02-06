@@ -1,11 +1,11 @@
-<div>
-  <div>
-    <p>{{post.title}}</p>
+<div class="card justify-space-between">
+  <div class="card-header flex-row justify-space-around">
+    <h2>{{post.title}}</p>
 
-    <p>Created by {{post.User.username}} on {{format_date post.createdAt}}</p>
+    <h2>Created by {{post.User.username}} on {{format_date post.createdAt}}</p>
   </div>
-  <div>
-    <p>{{post.body}}</p>
+  <div class="card-body">
+    <h3>{{post.body}}</h3>
   </div>
 </div>
 
@@ -13,8 +13,8 @@
     <input type="hidden" name="post-id" value="{{post.id}}"/>
     <input type="hidden" name="post-title" value="{{post.title}}"/>
       <div>
-        <label>New Description:</label>
-        <textarea type="text" name="post-body"></textarea>
+        <label class="form-label"><h3>New Description:</h3></label>
+        <textarea class="form-input" type="text" name="post-body"></textarea>
       </div>
       <div>
         <button class="btn" type="submit">Submit</button>

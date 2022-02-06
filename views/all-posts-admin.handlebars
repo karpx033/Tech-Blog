@@ -1,6 +1,6 @@
 <div>
   <div>
-    <p>Welcome, {{owner.username}}!</p>
+    <h1>Welcome, {{owner.username}}!</h1>
   </div>
 </div>
 
@@ -11,11 +11,12 @@
     {{#each posts as |post| }}
   <div class="card justify-space-between">
     <div class="card-header flex-row justify-space-around">
-    <h2><a href="/dashboard/{{post.id}}">{{title}}</a><h2>
-    <p>Created by {{User.username}} on</p>
+    <h2><a href="/dashboard/{{post.id}}">Title: {{title}}</a><h2>
+    <h2>Created by {{User.username}} on {{format_date createdAt}}</h2>
     </div>
-    <div class="card-body"></div>
-    <p>{{body}}</p>
+    <div class="card-body">
+    <h3>{{body}}</h3>
+    </div>
   </div>
 {{/each}}
 {{/if}}

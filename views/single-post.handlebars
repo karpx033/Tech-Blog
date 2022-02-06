@@ -1,20 +1,27 @@
-<div>
-  <div>
-    <p>{{post.title}}</p>
+<div class="card justify-space-between">
+  <div class="card-header flex-row justify-space-around">
+    <h2>{{post.title}}</p>
 
-    <p>Created by {{post.User.username}} on {{format_date post.createdAt}}</p>
+    <h2>Created by {{post.User.username}} on {{format_date post.createdAt}}</p>
   </div>
-  <div>
-    <p>{{post.body}}</p>
+  <div class="card-body">
+    <h3>{{post.body}}</h3>
   </div>
 </div>
 
 {{#if post.Comments}}
-<h1>Comments:</h1>
 {{#each post.Comments}}
-<h2>{{body}}</h2><p>By: {{User.username}}</p>
+<div class="card justify-space-between">
+  <div class="card-header flex-row justify-space-around">
+<h2>By: {{User.username}}</h2>
+  </div>
+<div class="card-body">
+<h3>{{body}}</h3>
+</div>
+</div>
 {{/each}}
 {{/if}}
+
 
 
 
@@ -22,8 +29,8 @@
 <form id="new-comment-form">
     <input type="hidden" name="post-id" value="{{post.id}}" />
       <div>
-        <label>Comment:</label>
-        <textarea type="text" name="comment-body"></textarea>
+        <label class="form-label"><h3>Comment:</h3></label>
+        <textarea class="form-input" type="text" name="comment-body"></textarea>
       </div>
       <div>
         <button class="btn" type="submit">Submit</button>

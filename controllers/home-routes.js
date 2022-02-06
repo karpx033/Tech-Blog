@@ -32,6 +32,7 @@ router.get('/post/:id', async (req, res) => {
     console.log(post);
     res.render('single-post', {
       post,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

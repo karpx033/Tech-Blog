@@ -25,6 +25,7 @@ router.get('/', withAuth, async (req, res) => {
       res.render('all-posts-admin', {
         posts,
         owner,
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -32,7 +33,9 @@ router.get('/', withAuth, async (req, res) => {
   });
 
   router.get('/new', (req, res) => {
-    res.render('new-post');
+    res.render('new-post', {
+      logged_in: req.session.logged_in,
+    });
   });
 
   router.get('/:id', async (req, res) => {
@@ -46,6 +49,7 @@ router.get('/', withAuth, async (req, res) => {
       console.log(post);
       res.render('edit-post', {
         post,
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       res.status(500).json(err);
