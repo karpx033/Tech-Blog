@@ -10,29 +10,30 @@
 
 <body>
   <div>
-    <header>
+    <header class="hero">
       <nav>
-        <a href="/">Homepage</a>
-        <a href="/dashboard">Dashboard</a>
+        <ul class="li-inline">
+        <li class="li-inline nav-item" ><h1><a href="/">Homepage</a></h1></li>
+        <li class="li-inline nav-item" ><h1><a class="nav-item" href="/dashboard">Dashboard</a></h1></li>
         {{#if logged_in}}
-        <button id="logout-link">Log Out</button>
+        <li class="li-inline nav-item" ><h1><button class ="btn-inline" id="logout-link">Log Out</button></h1></li>
         {{else}}
-        <a href="/login">Log In</a>
-        <a href="/signup">Sign Up</a>
+        <li class="li-inline nav-item" ><h1><a href="/login">Log In</a></h1></li>
+        <li class="li-inline nav-item" ><h1><a href="/signup">Sign Up</a></h1></li>
         {{/if}}
-      </nav>
+        </ul>
       <br>
        <h1>
-        <a href="/">Tech Blog</a>
+        <a class ="app-title" href="/">The Tech Blog</a>
       </h1>
+      </nav>
     </header>
     <main>
-      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
   </div>
 
-  <!-- Render script for logged in users only -->
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
