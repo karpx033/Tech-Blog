@@ -1,33 +1,23 @@
 <div>
   <div>
-    <h2>Welcome, {{username}}!</h2>
+    <h2>Welcome, {{postusername}}!</h2>
   </div>
 </div>
 
   {{#if posts.length}}
-  <div>
+
     <h3>Your Posts:</h3>
 
     {{#each posts as |post| }}
-<div>
-  <div>
-    <h2>
-      <a href="/post/{{post.title}}">{{post.title}}</a>
-    </h2>
-    <p>Created by {{post.username}} on</p>
-  </div>
-  <div>
-    <p>
-      {{post.body}}
-    </p>
-  </div>
-</div>
+
+
+    <p><a href="/post/{{post.title}}">{{title}}</a><p>
+    <p>Created by {{user.username}} on</p>
+    <p>{{post.body}}</p>
 {{/each}}
-  </div>
-  {{/if}}
+{{/if}}
 
-<div>
-    <button href="/dashboard/new">+ New</button>
+    <a href="/dashboard/new">+ New</a>
 </div>
 
-<script src="./js/profile.js"></script>
+{{!-- <script src="./js/profile.js"></script> --}}
