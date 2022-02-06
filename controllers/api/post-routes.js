@@ -19,7 +19,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
-          title: req.params.id,
+          id: req.params.id,
         },
       });
   
@@ -42,7 +42,7 @@ router.put('/:id', withAuth, async (req, res) =>{
             },
             {
             where: {
-                title: req.params.id,
+                id: req.params.id,
             }
         });
 

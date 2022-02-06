@@ -8,14 +8,23 @@ router.get('/', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        // include: [{ model: Post }],
       });
   
-      const user = userData.get({ plain: true });
+      const owner = userData.get({ plain: true });
+
+      const postData = await Post.findAll({
+      where: {userId: owner.id},
+      include: [User],
+    });
+
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
+    console.log(owner);
   
       res.render('all-posts-admin', {
-        ...user,
-        logged_in: true
+        posts,
+        owner,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -26,4 +35,20 @@ router.get('/', withAuth, async (req, res) => {
     res.render('new-post');
   });
 
+  router.get('/:id', async (req, res) => {
+    try {
+      const postData = await Post.findOne({
+        where: {id: req.params.id},
+        include: [User],
+    });
+  
+      const post = postData.get({ plain: true });
+      console.log(post);
+      res.render('edit-post', {
+        post,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   module.exports = router;
